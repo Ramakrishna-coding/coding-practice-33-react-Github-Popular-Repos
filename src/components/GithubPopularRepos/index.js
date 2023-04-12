@@ -36,7 +36,9 @@ class GithubPopularRepos extends Component {
     this.setState({apiStatus: apiStatusText.inProgress})
     const url = `https://apis.ccbp.in/popular-repos?language=${isButtonActive}`
     const response = await fetch(url)
+    console.log(response)
     const data = await response.json()
+    console.log(data)
     if (response.ok === true) {
       this.setState({
         reposList: data.popular_repos,
@@ -48,7 +50,8 @@ class GithubPopularRepos extends Component {
   }
 
   clickTabItem = id => {
-    this.setState({isButtonActive: id}, this.getApiList())
+    this.setState({isButtonActive: id})
+    this.getApiList()
   }
 
   apiStatusCodes = () => {

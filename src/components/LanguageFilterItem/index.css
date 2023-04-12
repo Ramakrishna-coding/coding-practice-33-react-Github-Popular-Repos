@@ -1,0 +1,16 @@
+.tab-name {
+    background-color: transparent;
+    border: none;
+    font: bold 20px 'Roboto';
+    cursor: pointer;
+    padding: 10px;
+}
+.active-tab-name {
+    color: #0284c7;
+    font-size: 20px;
+    font-family: 'Roboto';
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #0284c7;
+    border-radius: 10px;
+}

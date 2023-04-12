@@ -1,0 +1,45 @@
+.bg-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+}
+.heading {
+  font: bold 70px 'Lobster';
+  color: #0f172a;
+  margin: 10px;
+}
+.buttons-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  width: 500px;
+margin: 10px;  
+}
+.repos-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  flex-wrap: wrap;
+}
+.error-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.error-img {
+  height: 400px;
+}
+.error-msg {
+  font: bold 50px 'Roboto';
+  color: #1e293b;
+}
+.loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

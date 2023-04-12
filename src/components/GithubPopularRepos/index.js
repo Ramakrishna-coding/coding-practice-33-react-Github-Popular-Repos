@@ -23,7 +23,7 @@ const apiStatusText = {
 class GithubPopularRepos extends Component {
   state = {
     reposList: [],
-    isButtonActive: false,
+    isButtonActive: languageFiltersData[0].id,
     apiStatus: apiStatusText.isInitial,
   }
 
@@ -33,6 +33,7 @@ class GithubPopularRepos extends Component {
 
   getApiList = async () => {
     const {isButtonActive} = this.state
+    console.log(isButtonActive)
     this.setState({apiStatus: apiStatusText.inProgress})
     const url = `https://apis.ccbp.in/popular-repos?language=${isButtonActive}`
     const response = await fetch(url)

@@ -37,22 +37,27 @@ class GithubPopularRepos extends Component {
     this.setState({apiStatus: apiStatusText.inProgress})
     const url = `https://apis.ccbp.in/popular-repos?language=${isButtonActive}`
     const response = await fetch(url)
-    console.log(response)
-    const data = await response.json()
-    console.log(data)
     if (response.ok === true) {
+      const data = await response.json()
+      const updatedData = data.popular_repos.map(eachRepository => ({
+        id: eachRepository.id,
+        avatarUrl: eachRepository.avatar_url,
+        name: eachRepository.name,
+        starsCount: eachRepository.stars_count,
+        forksCount: eachRepository.forks_count,
+        issuesCount: eachRepository.issues_count,
+      }))
       this.setState({
-        reposList: data.popular_repos,
+        reposList: updatedData,
         apiStatus: apiStatusText.isSuccess,
       })
-    } else if (response.status === 401) {
+    } else {
       this.setState({apiStatus: apiStatusText.isFailure})
     }
   }
 
   clickTabItem = id => {
-    this.setState({isButtonActive: id})
-    this.getApiList()
+    this.setState({isButtonActive: id}, this.getApiList())
   }
 
   apiStatusCodes = () => {
@@ -62,7 +67,7 @@ class GithubPopularRepos extends Component {
         return (
           <ul className="repos-list">
             {reposList.map(each => (
-              <RepositoryItem key={each.id} details={each} />
+              <RepositoryItem key={each.id} repoItemDetails={each} />
             ))}
           </ul>
         )
